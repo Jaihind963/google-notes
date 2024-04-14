@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_notes/screens/editnote.dart';
 import 'package:google_notes/screens/write_note_page.dart';
 import 'package:iconsax/iconsax.dart';
@@ -27,7 +25,7 @@ class _MyHomeState extends State<MyHome> {
           if (snapshot.hasData) {
             return GridView.builder(
               itemCount: snapshot.data!.docs.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
               ),
@@ -49,7 +47,7 @@ class _MyHomeState extends State<MyHome> {
                   child: Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         width: MediaQuery.sizeOf(context).width / 2,
                         decoration: BoxDecoration(
                           border: Border.all(),
@@ -60,9 +58,9 @@ class _MyHomeState extends State<MyHome> {
                           children: [
                             Text(
                               "${userMap["Title"]}",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: const TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
@@ -79,9 +77,9 @@ class _MyHomeState extends State<MyHome> {
               },
             );
           }
-          return SizedBox();
+          return const SizedBox();
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
@@ -98,7 +96,7 @@ class _MyHomeState extends State<MyHome> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "  Google Keep",
                   style: TextStyle(fontSize: 22),
                 ),
@@ -121,9 +119,9 @@ class _MyHomeState extends State<MyHome> {
                       borderRadius: notes? BorderRadius.circular(10): null,
                       color: notes? Colors.grey.shade300 : null
                     ),
-                    margin: EdgeInsets.all(10),
-                     padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Icons.note_add_outlined),
                         Text("  Notes"),
@@ -149,9 +147,9 @@ class _MyHomeState extends State<MyHome> {
                       borderRadius: remainder? BorderRadius.circular(10): null,
                       color: remainder? Colors.grey.shade300 : null
                     ),
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Icons.timer_outlined),
                         Text("  Remainder"),
@@ -177,9 +175,9 @@ class _MyHomeState extends State<MyHome> {
                         borderRadius: label? BorderRadius.circular(10): null,
                         color: label? Colors.grey.shade300 : null
                       ),
-                    margin: EdgeInsets.all(10),
-                     padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Icons.label_outlined),
                         Text("  Create new label"),
@@ -205,9 +203,9 @@ class _MyHomeState extends State<MyHome> {
                         borderRadius: archive? BorderRadius.circular(10): null,
                         color: archive? Colors.grey.shade300 : null
                       ),
-                    margin: EdgeInsets.all(10),
-                     padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Icons.archive_outlined),
                         Text("  Archive"),
@@ -233,9 +231,9 @@ class _MyHomeState extends State<MyHome> {
                         borderRadius: deleted? BorderRadius.circular(10): null,
                         color: deleted? Colors.grey.shade300 : null
                       ),
-                    margin: EdgeInsets.all(10),
-                     padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Icons.delete_outline_outlined),
                         Text("  Deleted"),
@@ -261,9 +259,9 @@ class _MyHomeState extends State<MyHome> {
                         borderRadius: setting? BorderRadius.circular(10): null,
                         color: setting? Colors.grey.shade300 : null
                       ),
-                    margin: EdgeInsets.all(10),
-                     padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Icons.settings_outlined),
                         Text("  Setting"),
@@ -289,9 +287,9 @@ class _MyHomeState extends State<MyHome> {
                         borderRadius: help? BorderRadius.circular(10): null,
                         color: help? Colors.grey.shade300 : null
                       ),
-                    margin: EdgeInsets.all(10),
-                     padding: EdgeInsets.all(10),
-                    child: Row(
+                    margin: const EdgeInsets.all(10),
+                     padding: const EdgeInsets.all(10),
+                    child: const Row(
                       children: [
                         Icon(Iconsax.message_question),
                         Text("  Help & feedback"),
@@ -311,14 +309,14 @@ class _MyHomeState extends State<MyHome> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WriteNotes(),
+              builder: (context) => const WriteNotes(),
             ),
           );
         },
-        child: Icon(Icons.add_outlined),
+        child: const Icon(Icons.add_outlined),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 55, left: 10, right: 10),
+        margin: const EdgeInsets.only(top: 55, left: 10, right: 10),
         child: Column(
           children: [
             Container(
@@ -334,17 +332,17 @@ class _MyHomeState extends State<MyHome> {
                     onPressed: () {
                       _scoffoldKey.currentState!.openDrawer();
                     },
-                    icon: Icon(Icons.menu),
+                    icon: const Icon(Icons.menu),
                   ),
-                  Text(
+                  const Text(
                     "Search your notes",
                     style: TextStyle(fontSize: 18),
                   ),
-                  Spacer(),
-                  CircleAvatar(
+                  const Spacer(),
+                  const CircleAvatar(
                     backgroundImage: AssetImage("assets/images/profile.jpg"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                 ],
