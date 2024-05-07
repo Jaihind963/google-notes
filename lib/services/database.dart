@@ -19,6 +19,7 @@ class DataBase {
           .update(updateInfo);
       Utils().flutterToast("Note successfully edited");
     } catch (e) {
+      print(e.toString());
       Utils().flutterToast(e.toString());
     }
   }
